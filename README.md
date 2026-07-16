@@ -24,7 +24,7 @@ http://3.110.195.4
 
 ## Movies
 
-![Movies](screenshots/movies.png)
+![Movies](1.png)
 
 ---
 
