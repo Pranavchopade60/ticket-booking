@@ -9,7 +9,7 @@ A modern cloud-based **Movie Ticket Booking System** built using **Amazon EC2, A
 **Hosted on Amazon EC2**
 
 ```
-http://YOUR-EC2-PUBLIC-IP
+http://3.110.195.4
 ```
 
 ---
