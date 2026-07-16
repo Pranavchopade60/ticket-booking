@@ -135,18 +135,11 @@ Movie-Booking-System
 │
 ├── frontend
 │   ├── index.html
-│   ├── movies.html
-│   ├── booking.html
-│   ├── confirmation.html
-│   ├── css
-│   ├── js
-│   └── assets
+│   
 │
 ├── lambda
-│   ├── bookTicket.py
-│   ├── getMovies.py
-│   ├── getSeats.py
-│   └── bookingHistory.py
+│   ├─lambda.py
+
 │
 ├── screenshots
 │   ├── home.png
