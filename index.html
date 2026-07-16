@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Professional | OnePage</title>
+    <style>
+         :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            color: white;
+            line-height: 1.6;
+        }
+        /* Navigation */
+        
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        /* Hero */
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        /* Sections */
+        
+        section {
+            padding: 5rem 10%;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background: var(--glass);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+            text-align: center;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        /* Forms & Footer */
+        
+        input,
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        /* Helpers */
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">🚀 ModernUI</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Building the Future</h1>
+        <p>Responsive, fast, and elegant web solutions for everyone.</p>
+        <button class="btn" onclick="document.getElementById('contact').scrollIntoView()">Get Started</button>
+    </header>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We leverage cutting-edge web technologies to deliver performance-driven static experiences. Built for speed, security, and scalability.</p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>⚡ Speed</h3>
+                <p>Optimized for lightning-fast loading.</p>
+            </div>
+            <div class="card">
+                <h3>🎨 Design</h3>
+                <p>Modern aesthetics with glassmorphism.</p>
+            </div>
+            <div class="card">
+                <h3>📱 Responsive</h3>
+                <p>Works perfectly on any device.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" rows="5"></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 ModernUI. All rights reserved.</p>
+        <p>✨ Stay Inspired</p>
+    </footer>
+
+    <div class="scroll-top" onclick="window.scrollTo(0,0)">↑</div>
+
+    <script>
+        // Smooth scroll & Fade in
+        window.onscroll = () => {
+            const btn = document.querySelector('.scroll-top');
+            if (window.scrollY > 300) btn.style.display = 'block';
+            else btn.style.display = 'none';
+        };
+
+        // Form Validation
+        document.getElementById('contactForm').onsubmit = (e) => {
+            e.preventDefault();
+            alert('Message received! This is a static demo.');
+        };
+
+        // Hover Effect
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', () => card.style.borderColor = '#6366f1');
+            card.addEventListener('mouseleave', () => card.style.borderColor = 'rgba(255,255,255,0.1)');
+        });
+    </script>
+</body>
+
+</html>
