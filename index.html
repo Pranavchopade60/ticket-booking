@@ -4,233 +4,365 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Professional | OnePage</title>
+    <title>Movie Booking - AWS Project</title>
     <style>
-         :root {
-            --primary: #6366f1;
-            --secondary: #a855f7;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --glass: rgba(255, 255, 255, 0.1);
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: Segoe UI, Arial, sans-serif
         }
         
         body {
-            background: linear-gradient(135deg, #0f172a, #1e1b4b);
-            color: white;
-            line-height: 1.6;
-        }
-        /* Navigation */
-        
-        nav {
-            position: fixed;
-            width: 100%;
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
+            background: #111827;
+            color: #fff
         }
         
-        .logo {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        /* Hero */
-        
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        header {
+            background: #d81b60;
+            padding: 18px;
             text-align: center;
-            padding: 0 1rem;
+            font-size: 30px;
+            font-weight: 700;
+            position: sticky;
+            top: 0
         }
         
-        .hero h1 {
-            font-size: 4rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px
         }
         
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            border: none;
-            background: var(--primary);
-            color: white;
-            cursor: pointer;
-            margin-top: 2rem;
-            transition: transform 0.3s;
+        h2.section {
+            text-align: center;
+            margin-bottom: 25px
         }
         
-        .btn:hover {
-            transform: scale(1.05);
-        }
-        /* Sections */
-        
-        section {
-            padding: 5rem 10%;
-        }
-        
-        .grid {
+        .movies {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 25px
         }
         
         .card {
-            background: var(--glass);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-            text-align: center;
+            background: #1f2937;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .35);
+            transition: .3s
         }
         
         .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-6px)
         }
-        /* Forms & Footer */
         
-        input,
-        textarea {
+        .card img {
             width: 100%;
-            padding: 1rem;
-            margin: 1rem 0;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 420px;
+            object-fit: cover
+        }
+        
+        .info {
+            padding: 18px
+        }
+        
+        .info h3 {
+            font-size: 28px
+        }
+        
+        .badges {
+            margin: 12px 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+        
+        .badge {
+            background: #374151;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px
+        }
+        
+        button {
+            background: #e91e63;
+            border: none;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer
+        }
+        
+        button:hover {
+            background: #c2185b
+        }
+        
+        .booked {
+            background: #ef4444!important;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        #booking {
+            display: none;
+            margin-top: 40px;
+            background: #1f2937;
+            padding: 25px;
+            border-radius: 16px
+        }
+        
+        #movieTitle {
+            text-align: center;
+            margin-bottom: 20px
+        }
+        
+        .screen {
+            background: #d1d5db;
+            color: #111;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 15px auto;
+            width: 80%
+        }
+        
+        .legend {
+            text-align: center;
+            margin: 15px
+        }
+        
+        .legend span {
+            margin: 0 12px
+        }
+        
+        .seats {
+            display: grid;
+            grid-template-columns: repeat(5, 70px);
+            gap: 15px;
+            justify-content: center;
+            margin: 25px 0
+        }
+        
+        .seat {
+            height: 55px;
+            background: #22c55e;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .2s
+        }
+        
+        .seat:hover {
+            transform: scale(1.05)
+        }
+        
+        .selected {
+            background: #3b82f6!important
+        }
+        
+        .booked {
+            background: #ef4444!important;
+            cursor: not-allowed
+        }
+        
+        .form {
+            max-width: 400px;
+            margin: 20px auto
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px
+        }
+        
+        #message {
+            display: none;
+            background: #064e3b;
+            padding: 15px;
             border-radius: 10px;
-            color: white;
+            margin-top: 20px;
+            text-align: center
         }
         
         footer {
             text-align: center;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.3);
-        }
-        /* Helpers */
-        
-        .scroll-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary);
-            padding: 10px 15px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+            padding: 25px;
+            color: #bbb
         }
     </style>
 </head>
 
 <body>
+    <header>🎬 Movie Ticket Booking</header>
 
-    <nav>
-        <div class="logo">🚀 ModernUI</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+    <div class="container">
+        <h2 class="section">Now Showing</h2>
+
+        <div class="movies">
+
+            <div class="card">
+                <img src="https://bookmyshow-pranav.s3.ap-south-1.amazonaws.com/mo1.png" alt="Movie 1">
+                <div class="info">
+                    <h3>Avengers Endgame</h3>
+                    <div class="badges">
+                        <div class="badge">⭐ 9.2</div>
+                        <div class="badge">English</div>
+                        <div class="badge">3h 2m</div>
+                    </div>
+                    <p>The Avengers assemble for one final battle.</p><br>
+                    <button onclick="startBooking('avengers')">Book Tickets</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://bookmyshow-pranav.s3.ap-south-1.amazonaws.com/mo5.png" alt="Movie 2">
+                <div class="info">
+                    <h3>Spider‑Man: No Way Home</h3>
+                    <div class="badges">
+                        <div class="badge">⭐ 8.8</div>
+                        <div class="badge">English</div>
+                        <div class="badge">2h 28m</div>
+                    </div>
+                    <p>Spider‑Man faces villains from across the multiverse.</p><br>
+                    <button onclick="startBooking('Spider-Man: No Way Home')">Book Tickets</button>
+                </div>
+            </div>
+
         </div>
-    </nav>
 
-    <header class="hero">
-        <h1>Building the Future</h1>
-        <p>Responsive, fast, and elegant web solutions for everyone.</p>
-        <button class="btn" onclick="document.getElementById('contact').scrollIntoView()">Get Started</button>
-    </header>
+        <div id="booking">
+            <h2 id="movieTitle"></h2>
+            <div class="screen">SCREEN</div>
+            <div class="legend">🟩 Available <span>🟦 Selected</span> <span>🟥 Booked</span></div>
+            <div class="seats" id="seatArea"></div>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>We leverage cutting-edge web technologies to deliver performance-driven static experiences. Built for speed, security, and scalability.</p>
-    </section>
+            <div class="form">
+                <input id="name" placeholder="Your Name">
+                <input id="email" type="email" placeholder="Email">
+                <input id="seatBox" placeholder="Selected Seat" readonly>
+                <button style="width:100%" onclick="confirmBooking()">Confirm Booking</button>
+            </div>
 
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>⚡ Speed</h3>
-                <p>Optimized for lightning-fast loading.</p>
-            </div>
-            <div class="card">
-                <h3>🎨 Design</h3>
-                <p>Modern aesthetics with glassmorphism.</p>
-            </div>
-            <div class="card">
-                <h3>📱 Responsive</h3>
-                <p>Works perfectly on any device.</p>
-            </div>
+            <div id="message"></div>
         </div>
-    </section>
+    </div>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form id="contactForm">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Message" rows="5"></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>© 2026 ModernUI. All rights reserved.</p>
-        <p>✨ Stay Inspired</p>
-    </footer>
-
-    <div class="scroll-top" onclick="window.scrollTo(0,0)">↑</div>
+    <footer>Built for AWS Integration (EC2 • S3 • API Gateway • Lambda • DynamoDB • SNS)</footer>
 
     <script>
-        // Smooth scroll & Fade in
-        window.onscroll = () => {
-            const btn = document.querySelector('.scroll-top');
-            if (window.scrollY > 300) btn.style.display = 'block';
-            else btn.style.display = 'none';
+        const rows = ["A", "B", "C", "D"];
+
+        let currentMovie = "";
+        let selectedSeat = "";
+
+        // Local storage for booked seats
+        const booked = {
+            "avengers": [],
+            "Spider-Man: No Way Home": []
         };
 
-        // Form Validation
-        document.getElementById('contactForm').onsubmit = (e) => {
-            e.preventDefault();
-            alert('Message received! This is a static demo.');
-        };
+        async function startBooking(movie) {
 
-        // Hover Effect
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', () => card.style.borderColor = '#6366f1');
-            card.addEventListener('mouseleave', () => card.style.borderColor = 'rgba(255,255,255,0.1)');
-        });
+            currentMovie = movie;
+
+            document.getElementById("booking").style.display = "block";
+
+            document.getElementById("movieTitle").innerText =
+                "Book Tickets - " + movie;
+
+            createSeats();
+
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+        }
+
+        function createSeats() {
+
+            const area = document.getElementById("seatArea");
+            area.innerHTML = "";
+
+            rows.forEach(r => {
+
+                for (let i = 1; i <= 5; i++) {
+
+                    const code = r + i;
+
+                    const seat = document.createElement("div");
+
+                    seat.className = "seat";
+
+                    seat.innerText = code;
+
+                    if (booked[currentMovie].includes(code)) {
+                        seat.classList.add("booked");
+                    }
+
+                    seat.onclick = () => {
+
+                        if (seat.classList.contains("booked")) return;
+
+                        document.querySelectorAll(".seat")
+                            .forEach(x => x.classList.remove("selected"));
+
+                        seat.classList.add("selected");
+
+                        selectedSeat = code;
+
+                        document.getElementById("seatBox").value = code;
+                    };
+
+                    area.appendChild(seat);
+                }
+            });
+        }
+
+        function confirmBooking() {
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+
+            if (!name || !email || !selectedSeat) {
+                alert("Please complete all details.");
+                return;
+            }
+
+            if (booked[currentMovie].includes(selectedSeat)) {
+                alert("Seat already booked!");
+                return;
+            }
+
+            booked[currentMovie].push(selectedSeat);
+
+            document.getElementById("message").style.display = "block";
+
+            document.getElementById("message").innerHTML = `
+        <h3>🎉 Booking Successful!</h3><br>
+        <b>Movie:</b> ${currentMovie}<br>
+        <b>Name:</b> ${name}<br>
+        <b>Email:</b> ${email}<br>
+        <b>Seat:</b> ${selectedSeat}<br><br>
+        Enjoy your movie 🍿
+    `;
+
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("seatBox").value = "";
+
+            selectedSeat = "";
+
+            createSeats();
+        }
     </script>
 </body>
 
