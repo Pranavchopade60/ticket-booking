@@ -23,7 +23,7 @@ http://3.110.195.4
 
 ## Movies
 
-![Movies](1.png)
+![Movies](mo1.png)
 
 --
 # ✨ Features
