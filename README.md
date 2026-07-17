@@ -17,7 +17,7 @@ http://3.110.195.4
 # 📸 Screenshots
 
 
-![Home](.png)
+![Home](movie-booking.png)
 
 ---
 
