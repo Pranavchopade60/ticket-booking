@@ -16,7 +16,6 @@ http://3.110.195.4
 
 # 📸 Screenshots
 
-## Home Page
 
 ![Home](screenshots/home.png)
 
@@ -26,26 +25,7 @@ http://3.110.195.4
 
 ![Movies](1.png)
 
----
-
-## Seat Selection
-
-![Seats](screenshots/seat-booking.png)
-
----
-
-## Booking Confirmation
-
-![Booking](screenshots/booking-confirmation.png)
-
----
-
-## Booking History
-
-![History](screenshots/history.png)
-
----
-
+--
 # ✨ Features
 
 - Browse Available Movies
