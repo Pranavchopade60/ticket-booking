@@ -274,7 +274,6 @@ Launch the application.
 
 GitHub
 
-https://github.com/YOUR_USERNAME
 
 ---
 
